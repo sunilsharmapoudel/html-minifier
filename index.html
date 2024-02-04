@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Minifier</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 800px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .textarea {
+        width: calc(100% - 22px);
+        height: 200px;
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: vertical;
+        box-sizing: border-box; 
+    .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    .button:hover {
+        background-color: #45a049;
+    }
+    .output {
+        width: calc(100% - 22px);
+        height: 200px;
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: vertical;
+        box-sizing: border-box;
+    @media screen and (max-width: 768px) {
+        .container {
+            width: 90%;
+            margin: auto;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="text-align:center;">HTML Minifier</h1>
+    <textarea id="input" class="textarea" placeholder="Enter your HTML code here..."></textarea>
+    <button class="button" onclick="minify()">Minify HTML</button>
+    <button class="button" onclick="copyCode()">Copy Code</button>
+    <textarea id="output" class="output" placeholder="Minified HTML code will appear here..." readonly></textarea>
+</div>
+
+<script>
+    function minify() {
+        const input = document.getElementById('input').value.trim();
+        const output = document.getElementById('output');
+        
+        if (input === '') {
+            alert('Please enter HTML code to minify.');
+            return;
+        }
+        
+        // Minify HTML code
+        const minifiedHTML = input
+            .replace(/<!--[\s\S]*?-->/g, '') // Remove HTML comments
+            .replace(/\s{2,}/g, ' ') // Replace multiple spaces with single space
+            .replace(/\n/g, '') // Remove newline characters
+            .replace(/>\s+</g, '><'); // Remove spaces between tags
+        
+        output.value = minifiedHTML;
+    }
+    
+    function copyCode() {
+        const output = document.getElementById('output');
+        
+        if (output.value.trim() === '') {
+            alert('There is no code to copy.');
+            return;
+        }
+        
+        output.select();
+        document.execCommand('copy');
+        alert('Code copied to clipboard!');
+    }
+</script>
+
+</body>
+</html>
