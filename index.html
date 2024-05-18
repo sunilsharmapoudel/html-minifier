@@ -9,16 +9,18 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 20px;
-        background-color: #f4f4f4;
+        background-color: #AED6F1;
     }
+
     .container {
         max-width: 800px;
         margin: auto;
         background: #fff;
         padding: 20px;
         border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 17px -16px 30px rgb(0 0 0 / 10%);
     }
+
     .textarea {
         width: calc(100% - 22px);
         height: 200px;
@@ -28,7 +30,9 @@
         border: 1px solid #ccc;
         border-radius: 5px;
         resize: vertical;
-        box-sizing: border-box; 
+        box-sizing: border-box;
+    }
+
     .button {
         padding: 10px 20px;
         font-size: 16px;
@@ -39,12 +43,21 @@
         cursor: pointer;
         margin-right: 10px;
     }
+
     .button:hover {
         background-color: #45a049;
     }
+
+    .btn-wrapper{
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
     .output {
         width: calc(100% - 22px);
         height: 200px;
+        margin-bottom: 10px;
         margin-top: 10px;
         padding: 10px;
         font-size: 14px;
@@ -52,25 +65,36 @@
         border-radius: 5px;
         resize: vertical;
         box-sizing: border-box;
-    @media screen and (max-width: 768px) {
+    
+    }
+   
+        @media screen and (max-width: 768px) {
         .container {
             width: 90%;
             margin: auto;
         }
     }
 </style>
+
+
 </head>
 <body>
 
 <div class="container">
-    <h1 style="text-align:center;">HTML Minifier</h1>
-    <textarea id="input" class="textarea" placeholder="Enter your HTML code here..."></textarea>
+    <h1 style="text-align:center;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none"><path d="M0 0h24v24H0z"/><path fill="currentColor" d="M14.62 2.662a1.5 1.5 0 0 1 1.04 1.85l-4.431 15.787a1.5 1.5 0 0 1-2.889-.81L12.771 3.7a1.5 1.5 0 0 1 1.85-1.039ZM7.56 6.697a1.5 1.5 0 0 1 0 2.12L4.38 12l3.182 3.182a1.5 1.5 0 1 1-2.122 2.121L1.197 13.06a1.5 1.5 0 0 1 0-2.12l4.242-4.243a1.5 1.5 0 0 1 2.122 0Zm8.88 2.12a1.5 1.5 0 1 1 2.12-2.12l4.243 4.242a1.5 1.5 0 0 1 0 2.121l-4.242 4.243a1.5 1.5 0 1 1-2.122-2.121L19.621 12z"/></g></svg>  HTML Minifier</h1>
+    <textarea id="input" class="textarea" placeholder="Enter your HTML code here..."></textarea></br>
+<div class="btn-wrapper">
     <button class="button" onclick="minify()">Minify HTML</button>
     <button class="button" onclick="copyCode()">Copy Code</button>
-    <textarea id="output" class="output" placeholder="Minified HTML code will appear here..." readonly></textarea>
 </div>
 
+    <textarea id="output" class="output" placeholder="Minified HTML code will appear here..." readonly></textarea>
+
+</div>
+
+
 <script>
+    
     function minify() {
         const input = document.getElementById('input').value.trim();
         const output = document.getElementById('output');
