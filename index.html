@@ -5,79 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HTML Minifier</title>
 <link rel="shortcut icon" href="/assets/image/favicon.ico" type="image/x-icon">
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
-        background-color: #AED6F1;
-    }
-
-    .container {
-        max-width: 800px;
-        margin: auto;
-        background: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 17px -16px 30px rgb(0 0 0 / 10%);
-    }
-
-    .textarea {
-        width: calc(100% - 22px);
-        height: 200px;
-        margin-bottom: 10px;
-        padding: 10px;
-        font-size: 14px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        resize: vertical;
-        box-sizing: border-box;
-    }
-
-    .button {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-right: 10px;
-    }
-
-    .button:hover {
-        background-color: #45a049;
-    }
-
-    .btn-wrapper{
-        text-align: center;
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
-
-    .output {
-        width: calc(100% - 22px);
-        height: 200px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        padding: 10px;
-        font-size: 14px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        resize: vertical;
-        box-sizing: border-box;
-    
-    }
-   
-        @media screen and (max-width: 768px) {
-        .container {
-            width: 90%;
-            margin: auto;
-        }
-    }
-</style>
-
-
+<link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
 
@@ -93,41 +21,6 @@
 
 </div>
 
-
-<script>
-    
-    function minify() {
-        const input = document.getElementById('input').value.trim();
-        const output = document.getElementById('output');
-        
-        if (input === '') {
-            alert('Please enter HTML code to minify.');
-            return;
-        }
-        
-        // Minify HTML code
-        const minifiedHTML = input
-            .replace(/<!--[\s\S]*?-->/g, '') // Remove HTML comments
-            .replace(/\s{2,}/g, ' ') // Replace multiple spaces with single space
-            .replace(/\n/g, '') // Remove newline characters
-            .replace(/>\s+</g, '><'); // Remove spaces between tags
-        
-        output.value = minifiedHTML;
-    }
-    
-    function copyCode() {
-        const output = document.getElementById('output');
-        
-        if (output.value.trim() === '') {
-            alert('There is no code to copy.');
-            return;
-        }
-        
-        output.select();
-        document.execCommand('copy');
-        alert('Code copied to clipboard!');
-    }
-</script>
-
+<script src="./public/main.js"></script>
 </body>
 </html>
