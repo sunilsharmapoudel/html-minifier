@@ -59,7 +59,7 @@ body {
         resize: vertical;
         box-sizing: border-box;
     }
-    
+
     .footer {
         text-align: center;
         color: rgb(128, 10, 33);
@@ -69,7 +69,6 @@ body {
         text-decoration: none;
         color: #4CAF50;
     }
-
    
         @media screen and (max-width: 768px) {
         .container {
